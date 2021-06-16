@@ -2,7 +2,7 @@
 import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar } from "./Components/Navbar/index.jsx";
+import { NavbarComponent } from "./Components/Navbar/index.jsx";
 import { HomeContainer } from "./containers/HomeContainer";
 function App() {
   const product = [
@@ -33,7 +33,7 @@ function App() {
   ];
   return (
     <div className="App">
-      <Navbar />
+      <NavbarComponent />
       <HomeContainer productData={product} />
     </div>
   );

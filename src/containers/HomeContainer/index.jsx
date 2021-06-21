@@ -1,26 +1,24 @@
+import { ItemList } from "../ItemList/index"
+import { Container, Row } from "react-bootstrap"
+import { useState, useEffect } from "react";
 
-import { Card } from "../../Components/Card";
-import { Container, Row, Col } from "react-bootstrap"
+export const HomeContainer = () => {
+  const [productos, setProductos] = useState([])
 
-export const HomeContainer = (props) => {
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('./dataJson/products.json');
+      const data = await response.json();
+      setProductos(data)
+    }
+    fetchData()
+  }, [])
   return (
     <section>
       <Container>
         <Row>
-          {props.productData.map((product) => {
-            return (
-
-              <Col>
-                <Card
-                  title={product.title}
-                  precio={product.precio}
-                  img={product.img}
-                  stock={product.stock}
-                />
-              </Col>
-
-            );
-          })}
+          <ItemList productos={productos} />
         </Row>
       </Container>
     </section>

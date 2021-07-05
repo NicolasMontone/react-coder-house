@@ -1,17 +1,27 @@
-import { Col } from "react-bootstrap"
-import { Card } from "../../Components/Card/index"
-export const ItemList = ({ productos }) => {
-    return (
-        <>
-            {productos.map(producto => {
-                return (
-                    <Col>
-                        <Card
-                            productos={producto} key={producto.id}
-                        />
-                    </Col>
-                );
-            })}
-        </>
-    )
-}
+import './style.css'
+import { Item } from "../../Components/Item/Index"
+import { Container, Row, Col } from "react-bootstrap"
+export const ItemList = ({ productosList, categoria }) => {
+  return (
+    <section>
+      <Container>
+        <h1>{categoria}</h1>
+        <Row>
+          {productosList.map((element, index) => {
+            return (
+              <Col xs={4} key={index}>
+                <Item
+
+                  img={element.img}
+                  title={element.title}
+                  price={element.price}
+                  id={element.idProd}
+                ></Item>
+              </Col>
+            );
+          })}
+        </Row>
+      </Container>
+    </section>
+  );
+};

@@ -11,5 +11,4 @@ export const getItem = async (idItem) => {
     const response = await fetch(`${url}items/${idItem}`)
     const data = await response.json()
     return data
-
 }

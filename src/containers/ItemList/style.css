@@ -1,3 +1,8 @@
 section {
     background-color: #606468;
 }
+
+.itemListTitle {
+    text-align: center;
+    margin-bottom: 2rem;
+}

@@ -5,7 +5,7 @@ export const ItemList = ({ productosList, categoria }) => {
   return (
     <section>
       <Container>
-        <h1>{categoria}</h1>
+        <h1 className="itemListTitle">{categoria}</h1>
         <Row>
           {productosList.map((element, index) => {
             return (

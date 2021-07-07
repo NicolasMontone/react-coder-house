@@ -14,7 +14,7 @@ export const ItemDetailContainer = () => {
             setTimeout(() => {
                 let aux = {
                     idProd: response.id,
-                    img: response.thumbnail,
+                    img: response.pictures[0].url,
                     title: response.title,
                     price: response.price
                 };
@@ -25,7 +25,7 @@ export const ItemDetailContainer = () => {
     }, [id])
     return (
         <>
-            <Container>
+            <Container className="itemDetailContainer">
                 <>
                     {producto ? (
                         <ItemDetail

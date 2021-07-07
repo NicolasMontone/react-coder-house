@@ -2,7 +2,11 @@
     text-decoration: none;
     color: #007bff;
 }
+
 .link :hover {
     text-decoration: none;
 }
 
+.categoryLink {
+    color: #111;
+}

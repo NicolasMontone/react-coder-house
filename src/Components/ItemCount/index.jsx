@@ -31,8 +31,8 @@ export const ItemCount = ({ stock, onAdd, initial }) => {
             <Button variant="outline-primary" onClick={restar}>-</Button>
             <input type="number" value={counter} onChange={manualChange} />
             <Button variant="outline-primary" onClick={sumar}>+</Button>
-            <button className="btn btn-primary" onClick={() => { onAdd(counter) }}>
+            <Button className="btn btn-primary buyNow" onClick={() => { onAdd(counter) }}>
                 Comprar ahora
-            </button>
+            </Button>
         </div>)
 }

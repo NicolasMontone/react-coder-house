@@ -10,18 +10,31 @@ export const NavbarComponent = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link as={NavLink} activeClassName="active" to="/category/Mangas" >
-              Mangas
-            </Nav.Link>
-            <Nav.Link as={NavLink} activeClassName="active" to="/category/Teclados">
-              Teclados
-            </Nav.Link>
-            <NavDropdown title="Usuario" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Me gusta</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Mis compras</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Vender</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Cuenta</NavDropdown.Item>
+            <NavDropdown title="Categorías" id="collasible-nav-dropdown">
+              <NavDropdown.Item as={NavLink} activeClassName="active" to="/category/Mangas" >
+                Mangas
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} activeClassName="active" to="/category/Teclados">
+                Teclados
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} activeClassName="active" to="/category/Mouse">
+                Mouse
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} activeClassName="active" to="/category/Procesadores">
+                Procesadores
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} activeClassName="active" to="/category/Mothers">
+                Mothers
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} activeClassName="active" to="/category/Juegos de Play">
+                Juegos
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} activeClassName="active" to="/category/Playstation4">
+                PlayStation
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} activeClassName="active" to="/category/Discos-Sólidos">
+                Discos Sólidos
+              </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link ><CartComponent /></Nav.Link>
           </Nav>

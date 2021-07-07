@@ -1,7 +1,15 @@
+import { useContext } from "react"
+import { ShopContext } from "../../context/ShopContext"
+import "./styles.css"
+
 
 
 export const Home = () => {
+    const estadoGlobal = useContext(ShopContext)
+    console.log(estadoGlobal)
     return (
-        <h1>Monto Store </h1>
+        <div className="homeContainer">
+            <h1 className="homeTitle">Monto Store</h1>
+        </div>
     )
 }

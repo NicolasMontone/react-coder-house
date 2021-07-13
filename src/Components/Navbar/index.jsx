@@ -2,7 +2,10 @@ import './styles.css'
 import { Navbar, Nav, NavDropdown } from "react-bootstrap"
 import { CartComponent } from '../CartComponent/index'
 import { Link, NavLink } from "react-router-dom";
+import { CartContext } from '../../context/CartContext'
+import { useContext } from 'react';
 export const NavbarComponent = () => {
+  const { carrito } = useContext(CartContext)
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -36,7 +39,7 @@ export const NavbarComponent = () => {
                 Discos Sólidos
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link ><CartComponent /></Nav.Link>
+            <Nav.Link ><Link to={"/cart"} className="link">{carrito.length == 0 ? '' : <span>{carrito.length}</span>}<CartComponent /></Link></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

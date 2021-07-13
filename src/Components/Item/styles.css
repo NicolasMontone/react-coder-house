@@ -3,3 +3,8 @@
     max-height: 35rem;
     margin-bottom: 3rem;
 }
+
+.itemImage {
+    max-width: 288px;
+    max-height: 288px;
+}

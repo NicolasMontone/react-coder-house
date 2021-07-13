@@ -1,0 +1,21 @@
+.cartConatiner {
+    width: 700px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.cartText {
+    display: inline-block;
+    margin: 1rem;
+}
+
+.vaciarCarrito {
+    display: inline-block;
+}
+
+.itemCart {
+    border: 1px solid black;
+    padding: 0.4rem;
+}

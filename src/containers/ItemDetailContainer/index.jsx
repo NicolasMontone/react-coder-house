@@ -6,34 +6,34 @@ import { getItem } from '../../utils/api';
 import { useParams } from "react-router-dom"
 export const ItemDetailContainer = () => {
 
-    const [producto, setProducto] = useState();
+    const [producto, setProducto] = useState([]);
     const { id } = useParams();
     useEffect(() => {
         async function mercadoLibreData() {
             const response = await getItem(id);
             setTimeout(() => {
                 let aux = {
-                    idProd: response.id,
+                    id: response.id,
                     img: response.pictures[0].url,
                     title: response.title,
                     price: response.price
                 };
                 setProducto(aux);
-            }, 2000);
+            }, 1000);
         };
         mercadoLibreData()
     }, [id])
+    // const [loading, setLoading] = useState(false)
+
     return (
         <>
             <Container className="itemDetailContainer">
                 <>
-                    {producto ? (
+                    {!producto ? <Spinner /> : (
                         <ItemDetail
-                            img={producto.img}
-                            title={producto.title}
-                            price={producto.price}
+                            product={producto}
                         />
-                    ) : <Spinner />}
+                    )}
                 </>
             </Container>
         </>

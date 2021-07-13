@@ -1,7 +1,7 @@
 import './styles.css'
 import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
-
+import { Link } from 'react-router-dom'
 export const ItemCount = ({ stock, onAdd, initial }) => {
 
     const [counter, setCounter] = useState(initial)
@@ -31,8 +31,11 @@ export const ItemCount = ({ stock, onAdd, initial }) => {
             <Button variant="outline-primary" onClick={restar}>-</Button>
             <input type="number" value={counter} onChange={manualChange} />
             <Button variant="outline-primary" onClick={sumar}>+</Button>
-            <Button className="btn btn-primary buyNow" onClick={() => { onAdd(counter) }}>
-                Comprar ahora
+            <Button className="btn btn-primary buyNow" onClick={() => onAdd(counter)}>
+                Agregar al carrito
             </Button>
+            <Link to="/cart">
+                <Button className="ms-2 buyNow">Ir al Carrito</Button>
+            </Link>
         </div>)
 }

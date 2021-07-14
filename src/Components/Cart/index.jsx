@@ -1,14 +1,14 @@
 import React, { useContext } from 'react'
 import { Container, Row, Button } from 'react-bootstrap'
 import { CartContext } from '../../context/CartContext'
+import { Link } from 'react-router-dom'
 import "./styles.css"
 
 export const Cart = () => {
-    const { carrito, eliminarTodo, removeItem } = useContext(CartContext)
+    const { carrito, eliminarTodo, removeItem, totalPrice } = useContext(CartContext)
     return (
         <>
-
-            <Container >
+            {carrito.length == 0 ? <h1>No productos :P, <Link to={"/"}>volver al home</Link></h1> : (<Container >
                 <Row className="cartConatiner" >
 
                     {carrito.map((item, index) => {
@@ -21,10 +21,11 @@ export const Cart = () => {
                             </>
                         );
                     })}
-
+                    <div><p>Precio: ${totalPrice}</p> </div>
                     <Button onClick={eliminarTodo} className="vaciarCarrito">Vaciar Carrito</Button>
                 </Row>
-            </Container>
+            </Container>)}
+
         </>
     )
 }

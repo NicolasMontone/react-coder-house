@@ -12,7 +12,7 @@ const firebaseConfig = firebase.initializeApp({
 export const getFirebase = ()=>{
     return firebaseConfig
 }
-// FUncionalidades de firebase
+// Fncionalidades de firebase
 export const getFirestore = ()=>{
     return firebase.firestore(firebaseConfig);
 }

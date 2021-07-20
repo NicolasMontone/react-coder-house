@@ -1,4 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
+import { getFirestore } from '../firebase/client';
+
 
 export const CartContext = createContext();
 
@@ -6,6 +8,7 @@ export const CartComponentContext = ({ children }) => {
 
     const [carrito, setCarrito] = useState([])
     const [totalPrice, setTotalPrice] = useState(0)
+    const [listProducts, setListProducts] = useState([]);
 
     const isInCart = (id) => {
         return carrito.some(product => product.id === id)
@@ -57,8 +60,38 @@ export const CartComponentContext = ({ children }) => {
         localStorage.setItem('carrito', JSON.stringify(carrito));
     }, [carrito])
 
+    //DATABASE
+
+    useEffect(() => {
+        async function getData() {
+            const DB = getFirestore();
+            const COLLECTION = DB.collection('productos')
+            const RESPONSE = await COLLECTION.get();
+            setListProducts(RESPONSE.docs.map(element => element.data()))
+        }
+        getData()
+        console.log(listProducts)
+    }, []);
+
+    const getProductoById = (id) => {
+        return listProducts.find(element => element.id === id)
+    }
+    const getProductosByCategory = (categoty) => {
+        return listProducts.filter(element => element.categoria === category)
+    }
+    const getCategorias = () => {
+        const categorias = listProducts.map(element => element.categoria)
+        const categoryAux = []
+        categorias.forEach(element => {
+            if (!categoryAux.includes(element)) {
+                categoryAux.push(element)
+            }
+        });
+
+        return categoryAux;
+    }
     return (
-        <CartContext.Provider value={{ addItem, carrito, setCarrito, eliminarTodo, removeItem, totalPrice }}>
+        <CartContext.Provider value={{ addItem, carrito, setCarrito, eliminarTodo, removeItem, totalPrice, listProducts, getProductoById, getProductosByCategory, getCategorias }}>
             {children}
         </CartContext.Provider >
     )

@@ -9,7 +9,7 @@ export const NavbarComponent = () => {
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand><Link to={"/"} className="link">Logo</Link></Navbar.Brand>
+        <Navbar.Brand><Link to={"/"} className="link"><img src="icons/icon.svg" alt="icon" /></Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
@@ -39,7 +39,7 @@ export const NavbarComponent = () => {
                 Discos Sólidos
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link ><Link to={"/cart"} className="link">{carrito.length == 0 ? '' : <span>{carrito.length}</span>}<CartComponent /></Link></Nav.Link>
+            <Nav.Link as={NavLink} to={"/cart"} className="link">  {carrito.length === 0 ? '' : <span>{carrito.length}</span>}<CartComponent /></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

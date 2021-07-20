@@ -11,11 +11,10 @@ export const ItemList = ({ productosList, categoria }) => {
             return (
               <Col xs={4} key={index}>
                 <Item
-
-                  img={element.img}
-                  title={element.title}
+                  img={element.url}
+                  title={element.name}
                   price={element.price}
-                  id={element.idProd}
+                  id={element.id}
                 ></Item>
               </Col>
             );

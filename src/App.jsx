@@ -7,6 +7,8 @@ import { ItemDetailContainer } from "./containers/ItemDetailContainer/index"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import { CartComponentContext } from "./context/CartContext";
 import { Cart } from "./Components/Cart/index"
+import { FormComponent } from './Components/FormComponent/index';
+
 function App() {
   return (
     <CartComponentContext>
@@ -19,6 +21,8 @@ function App() {
           <Route path="/category/:categoryId" component={ItemListContainer} />
           <Route path="/item/:id" component={ItemDetailContainer} />
           <Route path="/item/:id" component={ItemDetailContainer}></Route>
+          <Route path="/form" component={FormComponent} />
+
           <Route path="/cart" component={Cart} />
           <Route path="*" component={() => <h1>Error 404</h1>} />
         </Switch>

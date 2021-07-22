@@ -12,3 +12,10 @@ export const getItem = async (idItem) => {
     const data = await response.json()
     return data
 }
+
+//ORDER
+
+export const orderFirebase = (order) => {
+    const DB = getFirestore()
+    return DB.collection("orders").add(order)
+}

@@ -23,7 +23,6 @@ export const ItemDetail = ({ product }) => {
                     </Spinner>
                 </div>
                 :
-
                 <Row>
                     <Col>
                         <img src={product.img} alt="foto de producto" className="itemDetailImg" />

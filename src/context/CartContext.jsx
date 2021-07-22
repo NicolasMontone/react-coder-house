@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import { getFirestore } from '../firebase/client';
+import { orderFirebase } from "../utils/helpers"
 
 
 export const CartContext = createContext();
@@ -90,8 +90,19 @@ export const CartComponentContext = ({ children }) => {
 
         return categoryAux;
     }
+    const createOrder = async (data) => {
+        const db = getFirestore();
+        // const order = {
+        //     buyer: data,
+        //     item: shoppingList,
+        //     total: getTotal()
+        // }
+        const order = { buyer: { name, phone, email }, item: carrito, total: totalPrice };
+        const response = await orderFirebase(order)
+        console.log(response)
+    }
     return (
-        <CartContext.Provider value={{ addItem, carrito, setCarrito, eliminarTodo, removeItem, totalPrice, listProducts, getProductoById, getProductosByCategory, getCategorias }}>
+        <CartContext.Provider value={{ addItem, carrito, setCarrito, eliminarTodo, removeItem, totalPrice, listProducts, getProductoById, getProductosByCategory, getCategorias, createOrder }}>
             {children}
         </CartContext.Provider >
     )
